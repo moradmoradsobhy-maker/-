@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MORAD - Jeu Éducatif</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>⚽ MORAD ⚽</h1>
+        <p class="subtitle">Unité 6 : Le diagramme en boîte (Niveau A2)</p>
+    </header>
+
+    <main id="game-container">
+        <!-- شاشة الأسئلة مباشرة -->
+        <section id="quiz-screen" class="card">
+            <div class="status-bar">
+                <span id="question-counter" class="pill pill-q">Question 1 / 12</span>
+                <span id="timer-display" class="pill pill-timer">⏱️ 02:00</span>
+                <span id="score-display" class="pill pill-score">Score : 0</span>
+            </div>
+
+            <div class="top-actions">
+                <span class="question-type-badge" id="q-type">CHOISIS</span>
+                <button id="open-scratchpad-btn" class="btn scratch-open-btn">✍️ Feuille de calcul (مسودة)</button>
+            </div>
+
+            <h3 id="question-text">Question ici...</h3>
+            
+            <!-- منطقة الرسم التوضيحي لبعض الأسئلة -->
+            <div id="visual-aid" class="hidden"></div>
+
+            <!-- منطقة الإجابات (اختياري أو أكمل) -->
+            <div id="options-container"></div>
+            
+            <div id="input-container" class="hidden">
+                <input type="text" id="complete-input" placeholder="Écris ta réponse ici..." autocomplete="off">
+                <button id="submit-complete-btn" class="btn validate-btn">Valider ✔</button>
+            </div>
+
+            <!-- أزرار المساعدة المطلوبة -->
+            <div class="help-controls">
+                <button id="support-btn" class="btn support-btn">🆘 SUPPORT</button>
+                <button id="mmark-btn" class="btn mmark-btn">🧠 الاستشارة M.MARK</button>
+            </div>
+
+            <!-- صندوق عرض المساعدة -->
+            <div id="help-box" class="help-box hidden"></div>
+
+            <!-- شاشة النتيجة الفورية (مانشستر يونايتد / مانشستر سيتي) -->
+            <div id="feedback-overlay" class="feedback-overlay hidden">
+                <div class="feedback-content">
+                    <div id="team-badge" class="team-badge"></div>
+                    <h2 id="feedback-title">CORRECT RÉPONSE</h2>
+                    <p id="feedback-explanation"></p>
+                    <button id="next-btn" class="btn primary-btn">Question Suivante ➡️</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- شاشة النهاية -->
+        <section id="end-screen" class="card hidden">
+            <h2>🏆 Fin de la leçon !</h2>
+            <p id="final-score-text">Ton score est de 0 / 12</p>
+            <button id="restart-btn" class="btn primary-btn">Rejouer 🔄</button>
+        </section>
+    </main>
+
+    <!-- نافذة الورقة الكبيرة للكتابة والرسم بالقلم -->
+    <div id="scratchpad-modal" class="scratchpad-modal hidden">
+        <div class="scratchpad-header">
+            <span>✍️ Feuille d'étapes (Brouillon)</span>
+            <div class="pen-tools">
+                <button class="pen-color active" data-color="#1e293b" style="background:#1e293b;" title="Noir"></button>
+                <button class="pen-color" data-color="#dc2626" style="background:#dc2626;" title="Rouge"></button>
+                <button class="pen-color" data-color="#2563eb" style="background:#2563eb;" title="Bleu"></button>
+                <button id="eraser-btn" class="tool-btn">🧽 Gomme</button>
+                <button id="clear-pad-btn" class="tool-btn danger">🗑️ Effacer</button>
+                <button id="close-pad-btn" class="tool-btn close">✖ Fermer</button>
+            </div>
+        </div>
+        <canvas id="scratchpad-canvas"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
+  
